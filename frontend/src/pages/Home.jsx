@@ -1,6 +1,6 @@
 // import RightSidebar from "@/components/RightSidebar";
 import Sidebar from "../components/Sidebar";
-import Feed from "../components/feed";
+import Feed from "../components/Feed";
 import useGetAllPosts from "@/hooks/useGetAllPosts";
 import useGetSuggestedUsers from "@/hooks/useGetSuggestedUsers";
 
