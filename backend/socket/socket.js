@@ -4,12 +4,22 @@ const http = require("http");
 
 const app = express();
 const server = http.createServer(app);
+// const io = new Server(server, {
+//     cors: {
+//         origin: 'https://snapverse-rho.vercel.app',
+//         methods: ['GET', 'POST']
+//     }
+// });
+
 const io = new Server(server, {
     cors: {
         origin: 'https://snapverse-rho.vercel.app',
-        methods: ['GET', 'POST']
-    }
+        methods: ['GET', 'POST'],
+        credentials: true // Ensure credentials (cookies) are allowed
+    },
+    transports: ['websocket', 'polling'], // Adding 'polling' as a fallback
 });
+
 
 const userSocketMap = {}; // This map stores socket id corresponding to user id; userId → socketId
 
