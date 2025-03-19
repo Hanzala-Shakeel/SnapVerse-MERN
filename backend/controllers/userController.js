@@ -15,7 +15,7 @@ const registerUser = async (req, res) => {
         const newUser = await userModel.create({ ...req.body, password: hash });
         const token = createToken(newUser); // Generate the token
         res.cookie('token', token, {
-            // secure: true,     // Cookie only sent over HTTPS
+            secure: true,     // Cookie only sent over HTTPS
             httpOnly: true,   // Cookie cannot be accessed via JavaScript
             sameSite: 'strict', // Helps prevent CSRF attacks
             maxAge: 1 * 24 * 60 * 60 * 1000
@@ -57,7 +57,7 @@ const loginUser = async (req, res) => {
 
         const token = createToken(user); // Generate the token
         res.cookie('token', token, {
-            // secure: true,     // Cookie only sent over HTTPS
+            secure: true,     // Cookie only sent over HTTPS
             httpOnly: true,   // Cookie cannot be accessed via JavaScript
             sameSite: 'strict', // Helps prevent CSRF attacks
             maxAge: 1 * 24 * 60 * 60 * 1000

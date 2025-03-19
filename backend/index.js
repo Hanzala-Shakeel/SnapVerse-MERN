@@ -9,7 +9,7 @@ const router = require("./routes/index");
 app.use(express.json());
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://snapverse-rho.vercel.app",
     credentials: true // Allow credentials (cookies) to be included
 }));
 
