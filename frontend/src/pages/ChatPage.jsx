@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AuthContext } from "@/context/authContext";
 import { ChatContext } from "@/context/chatContext";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const ChatPage = () => {
@@ -54,6 +54,16 @@ const ChatPage = () => {
   useEffect(() => {
     fetchChattedUsers();
   }, []);
+
+  const messageContainerRef = useRef(null); // Ref to the message container
+
+  // Scroll to the bottom when new messages arrive
+  useEffect(() => {
+    if (messageContainerRef.current) {
+      messageContainerRef.current.scrollTop =
+        messageContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   return (
     <>
@@ -158,7 +168,10 @@ const ChatPage = () => {
               </Avatar>
               <p>{selectedUser.username}</p>
             </div>
-            <div>
+            <div
+              ref={messageContainerRef}
+              className="max-h-[calc(100vh-147px)] max-md:h-[calc(100vh-272px)] overflow-y-auto"
+            >
               <div className="w-full flex mt-5 justify-center items-center flex-col gap-3">
                 <Avatar className="w-20 h-20 rounded-full">
                   <AvatarImage
@@ -181,21 +194,21 @@ const ChatPage = () => {
                 </Link>
               </div>
               <Messages selectedUser={selectedUser} />
-              <div className="w-full absolute flex bottom-0 p-3 gap-3 rounded-xl">
-                <input
-                  type="text"
-                  className="w-full outline-none rounded-3xl px-3 py-2 bg-transparent border border-zinc-700"
-                  placeholder="Message..."
-                  value={textMessage}
-                  onChange={(e) => setTextMessage(e.target.value)}
-                />
-                <button
-                  onClick={() => sendMessageHandler(selectedUser._id)}
-                  className="px-4 py-2 font-medium bg-[#0295F7] hover:bg-[#1777F2] transition-all rounded text-sm"
-                >
-                  Send
-                </button>
-              </div>
+            </div>
+            <div className="w-full absolute flex bottom-0 p-3 gap-3 bg-black">
+              <input
+                type="text"
+                className="w-full outline-none rounded-3xl px-3 py-2 bg-transparent border border-zinc-700"
+                placeholder="Message..."
+                value={textMessage}
+                onChange={(e) => setTextMessage(e.target.value)}
+              />
+              <button
+                onClick={() => sendMessageHandler(selectedUser._id)}
+                className="px-4 py-2 font-medium bg-[#0295F7] hover:bg-[#1777F2] transition-all rounded text-sm"
+              >
+                Send
+              </button>
             </div>
           </div>
         ) : (

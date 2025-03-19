@@ -11,7 +11,7 @@ const Messages = ({ selectedUser }) => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="overflow-y-auto h-[50vh] max-md:h-[40vh] max-sm:h-[25vh] mt-10 flex-1 p-4">
+    <div className="mt-10 flex-1 p-4">
       <div className="flex flex-col gap-3">
         {messages &&
           messages.map((message, index) => (
