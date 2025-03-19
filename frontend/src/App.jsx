@@ -16,7 +16,7 @@ import { NotificationContext } from "./context/notificationContext";
 
 const App = () => {
   const { user } = useContext(AuthContext);
-  const { setSocket } = useContext(SocketContext);
+  const { socket, setSocket } = useContext(SocketContext);
   const { setOnlineUsers } = useContext(ChatContext);
   const { handleLikeNotification } = useContext(NotificationContext);
 
@@ -43,11 +43,10 @@ const App = () => {
         socketio.close();
         setSocket(null);
       };
+    } else if (socket) {
+      socket.close();
+      setSocket(null);
     }
-    // else{
-    //   socketio.close();
-    //     setSocket(null);
-    // }
   }, [user, setOnlineUsers]);
   // [user, setSocket, setOnlineUsers] "user aur dispatch" patel ne use kiya
 
