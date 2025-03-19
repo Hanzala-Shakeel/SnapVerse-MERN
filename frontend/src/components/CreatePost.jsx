@@ -55,7 +55,7 @@ const CreatePost = ({ openCreatePost, setOpenCreatePost, user }) => {
   async function fetchUserProfile() {
     try {
       const res = await axios.get(
-        `http://localhost:3000/user/profile/${userProfile._id}`,
+        `https://snapverse-backend-one.vercel.app/user/profile/${userProfile._id}`,
         {
           withCredentials: true,
         }
@@ -78,7 +78,7 @@ const CreatePost = ({ openCreatePost, setOpenCreatePost, user }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/post/create",
+        "https://snapverse-backend-one.vercel.app/post/create",
         formData,
         { withCredentials: true }
       );

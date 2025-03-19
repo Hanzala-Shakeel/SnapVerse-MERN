@@ -17,7 +17,7 @@ const ChatPage = () => {
   async function sendMessageHandler(receiverId) {
     try {
       const res = await axios.post(
-        `http://localhost:3000/message/send/${receiverId}`,
+        `https://snapverse-backend-one.vercel.app/message/send/${receiverId}`,
         { message: textMessage },
         { withCredentials: true }
       );
@@ -39,7 +39,7 @@ const ChatPage = () => {
   const fetchChattedUsers = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/message/getchatteduser",
+        "https://snapverse-backend-one.vercel.app/message/getchatteduser",
         { withCredentials: true }
       ); // Adjust based on your API
       if (res.status === 200) {

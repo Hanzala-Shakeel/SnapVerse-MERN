@@ -14,7 +14,7 @@ const FollowingDialog = ({ userProfile, openFollowing, setOpenFollowing }) => {
     if(userProfile){
       try {
         const res = await axios.get(
-          `http://localhost:3000/user/getuserfollowing/${userProfile._id}`,
+          `https://snapverse-backend-one.vercel.app/user/getuserfollowing/${userProfile._id}`,
           { withCredentials: true }
         );
         if (res.status === 200) {

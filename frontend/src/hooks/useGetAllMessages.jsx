@@ -11,7 +11,7 @@ const useGetAllMessages = () => {
     async function fetchAllMessages() {
       try {
         const res = await axios.get(
-          `http://localhost:3000/message/all/${selectedUser?._id}`,
+          `https://snapverse-backend-one.vercel.app/message/all/${selectedUser?._id}`,
           {
             withCredentials: true,
           }

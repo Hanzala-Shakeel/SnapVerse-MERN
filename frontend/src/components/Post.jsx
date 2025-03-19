@@ -33,7 +33,7 @@ const Post = ({ post }) => {
   async function deletePost() {
     try {
       const res = await axios.delete(
-        `http://localhost:3000/post/delete/${post._id}`,
+        `https://snapverse-backend-one.vercel.app/post/delete/${post._id}`,
         { withCredentials: true }
       );
       if (res.status === 200) {
@@ -49,7 +49,7 @@ const Post = ({ post }) => {
   async function likeOrDislike() {
     try {
       const res = await axios.post(
-        `http://localhost:3000/post/likeordislike/${post._id}`,
+        `https://snapverse-backend-one.vercel.app/post/likeordislike/${post._id}`,
         {},
         { withCredentials: true }
       );
@@ -82,7 +82,7 @@ const Post = ({ post }) => {
   async function postComment() {
     try {
       const res = await axios.post(
-        `http://localhost:3000/post/addcomment/${post._id}`,
+        `https://snapverse-backend-one.vercel.app/post/addcomment/${post._id}`,
         { text },
         { withCredentials: true }
       );
@@ -110,7 +110,7 @@ const Post = ({ post }) => {
   const savedPost = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:3000/post/save/${post._id}`,
+        `https://snapverse-backend-one.vercel.app/post/save/${post._id}`,
         {},
         { withCredentials: true }
       );

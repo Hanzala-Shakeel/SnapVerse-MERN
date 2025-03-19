@@ -8,7 +8,7 @@ const useGetUserProfile = (userId) => {
     async function fetchUserProfile() {
       try {
         const res = await axios.get(
-          `http://localhost:3000/user/profile/${userId}`,
+          `https://snapverse-backend-one.vercel.app/user/profile/${userId}`,
           {
             withCredentials: true,
           }

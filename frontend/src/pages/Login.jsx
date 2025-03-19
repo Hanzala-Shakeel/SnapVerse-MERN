@@ -28,7 +28,7 @@ const Login = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:3000/user/login",
+        "https://snapverse-backend-one.vercel.app/user/login",
         formData,
         { withCredentials: true }
       );

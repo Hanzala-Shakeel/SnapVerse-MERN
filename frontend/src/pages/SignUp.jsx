@@ -28,7 +28,7 @@ const SignUp = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:3000/user/register",
+        "https://snapverse-backend-one.vercel.app/user/register",
         formData,
         { withCredentials: true }
       );
