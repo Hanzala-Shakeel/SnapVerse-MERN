@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+  font-family: "Fontspring";
+  src: url("./assets/font/font-spring.otf");
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+  font-family: "Roboto", serif;
+}
+.logo {
+  font-family: "Fontspring";
+}
+/* *::-webkit-scrollbar{
+  background-color: gray;
+} */
+
+
