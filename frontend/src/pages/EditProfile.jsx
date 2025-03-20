@@ -46,7 +46,7 @@ const EditProfile = () => {
         formData.append("profilePicture", input.profilePicture);
       }
       const res = await axios.post(
-        "https://snapverse-backend-one.vercel.app/user/profile/edit",
+        "http://localhost:3000/user/profile/edit",
         formData,
         { withCredentials: true }
       );

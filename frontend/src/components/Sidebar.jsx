@@ -47,7 +47,7 @@ const Sidebar = () => {
   async function logout() {
     try {
       const res = await axios.post(
-        "https://snapverse-backend-one.vercel.app/user/logout",
+        "http://localhost:3000/user/logout",
         {},
         { withCredentials: true }
       );
@@ -70,7 +70,6 @@ const Sidebar = () => {
     else if (text === "Profile") navigate(`/profile/${user._id}`);
     else if (text === "Home") navigate(`/`);
     else if (text === "Messages") navigate(`/chat`);
-    console.log(text);
   }
 
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);

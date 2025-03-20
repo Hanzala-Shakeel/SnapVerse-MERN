@@ -7,7 +7,7 @@ const useGetAllPosts = () => {
   useEffect(() => {
     async function fetchAllPosts() {
       try {
-        const res = await axios.get("https://snapverse-backend-one.vercel.app/post/all", {
+        const res = await axios.get("http://localhost:3000/post/all", {
           withCredentials: true,
         });
         if (res.status === 200) {

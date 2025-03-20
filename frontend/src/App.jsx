@@ -22,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
     if (user) {
-      const socketio = io("https://snapverse-backend-one.vercel.app", {
+      const socketio = io("http://localhost:3000", {
         query: {
           userId: user?._id,
         },

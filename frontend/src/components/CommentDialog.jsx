@@ -39,7 +39,7 @@ const CommentDialog = ({
   async function postComment() {
     try {
       const res = await axios.post(
-        `https://snapverse-backend-one.vercel.app/post/addcomment/${post._id}`,
+        `http://localhost:3000/post/addcomment/${post._id}`,
         { text },
         { withCredentials: true }
       );
@@ -71,7 +71,7 @@ const CommentDialog = ({
   async function likeOrDislike() {
     try {
       const res = await axios.post(
-        `https://snapverse-backend-one.vercel.app/post/likeordislike/${post._id}`,
+        `http://localhost:3000/post/likeordislike/${post._id}`,
         {},
         { withCredentials: true }
       );
@@ -104,7 +104,7 @@ const CommentDialog = ({
   const savedPost = async () => {
     try {
       const res = await axios.post(
-        `https://snapverse-backend-one.vercel.app/post/save/${post._id}`,
+        `http://localhost:3000/post/save/${post._id}`,
         {},
         { withCredentials: true }
       );
@@ -138,7 +138,7 @@ const CommentDialog = ({
   async function deletePost() {
     try {
       const res = await axios.delete(
-        `https://snapverse-backend-one.vercel.app/post/delete/${post._id}`,
+        `http://localhost:3000/post/delete/${post._id}`,
         { withCredentials: true }
       );
       if (res.status === 200) {
@@ -156,7 +156,7 @@ const CommentDialog = ({
   async function fetchUserProfile() {
     try {
       const res = await axios.get(
-        `https://snapverse-backend-one.vercel.app/user/profile/${userProfile._id}`,
+        `http://localhost:3000/user/profile/${userProfile._id}`,
         {
           withCredentials: true,
         }

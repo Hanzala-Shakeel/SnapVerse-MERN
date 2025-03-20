@@ -73,7 +73,7 @@ const Profile = () => {
   async function followOrUnfollow() {
     try {
       const res = await axios.post(
-        `https://snapverse-backend-one.vercel.app/user/followorunfollow/${userProfile._id}`,
+        `http://localhost:3000/user/followorunfollow/${userProfile._id}`,
         {},
         { withCredentials: true }
       );

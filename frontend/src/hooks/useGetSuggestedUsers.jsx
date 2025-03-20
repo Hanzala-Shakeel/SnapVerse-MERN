@@ -7,7 +7,7 @@ const useGetSuggestedUsers = () => {
   useEffect(() => {
     async function fetchSuggestedUsers() {
       try {
-        const res = await axios.get("https://snapverse-backend-one.vercel.app/user/suggested", {
+        const res = await axios.get("http://localhost:3000/user/suggested", {
           withCredentials: true,
         });
         if (res.status === 200) {

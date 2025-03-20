@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Check if user is authenticated
     axios
-      .get("https://snapverse-backend-one.vercel.app/user/checklogin", {
+      .get("http://localhost:3000/user/checklogin", {
         withCredentials: true,
       })
       .then((res) => {
